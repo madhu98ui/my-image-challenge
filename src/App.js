@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1 className="header">NASA Image Search</h1>
+      <h1 className="header">CosmicView</h1>
       <ImageSearch onSearch={fetchImages} />
 
       <Modal open={isModalOpen} onClose={handleClose} closeIcon>
