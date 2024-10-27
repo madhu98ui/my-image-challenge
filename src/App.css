@@ -61,6 +61,23 @@ h1 {
   border-radius: 25px;
 }
 
+.mic-icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.search-box.expanded .mic-icon-button {
+  opacity: 1;
+}
 .search-input {
   flex: 1;
   padding: 10px;
