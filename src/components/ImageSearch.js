@@ -4,7 +4,7 @@ import '../App.css';
 
 const ImageSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [isExpanded, setIsExpanded] = useState(false);
+  
 
   const handleVoiceSearch = () => {
     if ('webkitSpeechRecognition' in window) {
@@ -16,7 +16,7 @@ const ImageSearch = ({ onSearch }) => {
 
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        setSearchTerm(transcript); // Update search input with spoken text
+        setSearchTerm(transcript);
       };
 
       recognition.onerror = (event) => {
@@ -36,16 +36,12 @@ const ImageSearch = ({ onSearch }) => {
 
   return (
     <div
-      className="search-box-wrapper"
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
-    >
-      <div className={`search-box ${isExpanded ? 'expanded' : ''}`}>
-      {isExpanded && (
+    className="search-box-wrapper">
+    
+      <div className="search-box expanded">
           <button onClick={handleVoiceSearch} className="mic-icon-button">
             <FaMicrophone />
           </button>
-        )}
         <input
           type="text"
           className="search-input"

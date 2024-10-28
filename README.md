@@ -1,104 +1,57 @@
-Overview :
+NASA Image Challenge :
 
-Nasa Image Challenge is a Single-page web applicaion (SPA) that uses Nasa's image API to allow users to search, filter and view images. The application is built with React for interactivity and Semantic UI for components.
+NASA Image Challenge is a single-page web application built with React that leverages NASA’s image API to allow users to search, filter, and view images.
 
-Features :
+Features
+	1.	Users can search NASA’s image library using plain text.
+	2.	Filter search results by specifying a date range.
+	3.	View detailed information about each image in a modal window.
 
-> Search NASA's image library with plain text.
-> Filter search results by date range.
-> View image details in a modla window.
+Technologies Used
+	•	React: For building a dynamic user interface.
+	•	Axios: For making HTTP requests to NASA’s API.
+	•	Semantic UI: For ready-made UI components.
+	•	NASA Image API: Provides image data and metadata.
 
-Technologoes Used :
+Setup
+	1.	Install Node.js
 
-> React: JavaScript library for building the user interface
-> Axios: For making HTTP request to NASA's API.
-> Semantic-UI : UI library for pre-designed components.
-> NASA Image API : Public API to fetch images and metadata.
+	2.	Clone the repository and navigate into the project directory: 
+        git clone https://github.com/madhu98ui/my-image-challenge.git
 
-Getting Started :
+	3.	Install dependencies:
+        npm install
 
-Prerequisties :
-> Node.js and npm installed on your local machine.
+	4.	Set up environment variables:
+	•	Create a .env file in the root directory.
+	•	Add your NASA API key: REACT_APP_NASA_API_KEY=your_api_key_here
 
-Installation :
+	5.	Run the application:
+        npm start
 
-> Clone the Repo : git clone https://github.com/madhu98ui/my-image-challenge.git
+	6.	Build for production:
+        npm run build
 
-> Install Dependencies : npm install
+Key Features
+	Image Search :
+	•	Allows users to search NASA’s image library by entering keywords.
+	•	User input is handled via ImageSearch.js with an input field and a search button, and microphone functionality for      voice-based search.
+	
+    Date Filtering :
+	•	Users can filter images by a specific date range.
+	•	Filters applied in App.js using JavaScript’s Date object to display images within the selected range.
+	
+    Image Details Modal :
+	•	Detailed view of selected images with title, description, and high-resolution link.
+	•	Created using ImageModal.js with Semantic UI.
+	•	Displays a “No Results Found” message when no images match search criteria.
 
->Set Up Environment Variables : 
-    >Create a .env file in the project root
-    > Add NASA API key to the .env file : REACT_APP_NASA_API_KEY=your_api_key_here
+Components
+	•	ImageSearch.js: Manages user input and initiates searches.
+	•	ImageModal.js: Renders detailed view and metadata of selected images.
 
-> Run the Application : npm start
+Enhancements
+	•	Bookmark Feature: Enable users to save favorite images for later.
+	•	Social Sharing: Share images directly to social media platforms.
 
-> Build for Production : npm run build
-
-Approach and Implementation :
-
-> Setting Up the React Application 
-
-    Initialized a New React Project: 
-        Used npx create-react-app to create the project structure. 
-        Configured index.js and App.js as the entry points for the application. 
-        
-
-    Installed Semantic UI for ready-made components: 
-        Used Semantic UI React to provide modals, buttons, and other UI components, saving time on designing and building common elements. 
-    Set Up Custom CSS for styling: 
-        Created App.css to style the application. Used custom CSS classes to add styles for responsiveness, layout, and typography. 
-        
-    Configuring Semantic UI and Custom CSS 
-        Integrated Semantic UI: 
-            Installed Semantic UI React to use pre-built components such as modals, input fields, and buttons. 
-            Added Semantic UI CSS import to index.js for consistent styling across components. 
-        
-        Custom CSS: 
-            Used App.css for additional styling not provided by Semantic UI. 
-            Created custom CSS classes for layout adjustments, responsive design, and custom elements such as background images, padding, margins, and text styling. 
-            
-    NASA API Integration 
-        Registered for NASA API Key: 
-            Signed up at NASA’s API portal and obtained an API key to access NASA's image library. 
-        
-        Environment Variable Setup: 
-            Created a .env file in the project root to securely store the API key. 
-            Added the .env file to .gitignore to prevent committing sensitive data. 
-            
-        Configured Axios to Fetch Images: 
-            Set up an Axios GET request in App.js to fetch images based on user input. 
-            Filtered the API response to display only images and excluded other media types (e.g., videos, audio). 
-            
-    Implementing Image Search and Filtering 
-        Image Search Component 
-            Purpose: Allow users to search NASA’s image library via text input. 
-            Implementation: 
-               > Created ImageSearch.js to handle user input for search terms. 
-               > Set up an input field and a search button to trigger the search. 
-               > Passed the search term to App.js via props, initiating the image search when the button is clicked. 
-                
-        Filtering by Date 
-            Purpose: Enable users to filter images by a date range. 
-            Implementation: 
-                > Added a date filter section that allows users to select a start and end date. 
-                > Implemented logic in App.js to filter results based on the start and end date using JavaScript’s Date object. > Applied the date filter to the fetched images to show only those within the specified date range. 
-                
-    Modal Functionality
-        Modal for Image Details
-            Purpose: Display detailed information about each image in a larger view. 
-            Implementation: 
-                > Built a modal component (ImageModal.js) using Semantic UI to show selected image details. 
-                > Included additional metadata in the modal, such as the image title, description, and a link to the high-resolution version of the image. 
-                > Added a "No Results Found" message if there are no images matching the search criteria, enhancing user experience when there are no results. 
-                
-    Future Enhancements 
-        Bookmark Feature: 
-            Allow users to save their favorite images locally using local storage, so they can revisit saved images even after closing the app. 
-        Voice Search: 
-            Add voice search functionality using the Web Speech API, enabling hands-free interaction.  
-        Social Sharing: 
-            Enable sharing images to social media platforms directly from the app, increasing engagement and reach.
-
-
-
-
+Enjoy exploring NASA's incredible image collection!
