@@ -6,11 +6,14 @@ body {
   background-size: cover;
   background-repeat: repeat;
   backdrop-filter: blur(2px);
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   animation: verticalScroll 15s linear infinite;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 @keyframes verticalScroll {
@@ -28,13 +31,18 @@ body {
   border-radius: 10px;
   text-align: center;
   width: 80%;
-  max-width: 600px;
+  max-width: 800px;
   color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: 8vw;
   margin-bottom: 20px;
+  justify-content: center;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -43,21 +51,34 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  width: 300px;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
   height: 50px;
   background-color: #333;
   border-radius: 25px;
   overflow: hidden;
   transition: width 0.3s ease;
+  border: 2px solid transparent; 
+  box-shadow: 0 0 5px rgba(0, 174, 255, 0.7), 
+              0 0 10px rgba(0, 174, 255, 0.6), 
+              0 0 15px rgba(0, 174, 255, 0.5); 
 }
 
-  
-
+.search-box:hover {
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.8), 
+              0 0 30px rgba(0, 174, 255, 0.7), 
+              0 0 45px rgba(0, 174, 255, 0.6); 
+  width: 350px;
+}
 
 .mic-icon-button {
   background: none;
@@ -81,7 +102,6 @@ h1 {
   background-color: transparent;
   color: white;
   font-size: 1rem;
-  opacity: 1;
   width: 100%;
   
 }
@@ -206,3 +226,52 @@ h1 {
     font-size: 0.8rem;
   }
 }
+
+.suggestions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.suggestion-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestion-button:hover {
+  background-color: #555;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.page-number {
+  padding: 7px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.page-number.active {
+  background-color: #007BFF;
+  font-weight: bold;
+}
+
+.page-number:hover {
+  background-color: #555;
+}
+

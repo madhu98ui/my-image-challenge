@@ -34,6 +34,10 @@ const ImageSearch = ({ onSearch }) => {
     setSearchTerm('');
   };
 
+  const handleSuggestionClick = (keyword) => {
+    onSearch(keyword);
+  };
+
   return (
     <div
     className="search-box-wrapper">
@@ -53,6 +57,17 @@ const ImageSearch = ({ onSearch }) => {
         <button onClick={handleSearch} className="search-icon-button">
           <FaSearch />
         </button>
+      </div>
+      <div className="suggestions-container">
+        {['Galaxies', 'Nebulae', 'Astronauts', 'Space Missions', 'Planets', 'Stars', 'Telescopes'].map((keyword) => (
+          <button
+            key={keyword}
+            onClick={() => handleSuggestionClick(keyword)}
+            className="suggestion-button"
+          >
+            {keyword}
+          </button>
+        ))}
       </div>
     </div>
   );

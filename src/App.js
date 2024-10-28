@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Modal, Button, Icon } from 'semantic-ui-react';
 import ImageSearch from './components/ImageSearch';
 import ImageTable from './components/ImageTable';
+import Pagination from './components/Pagination';
 import './App.css';
 
 const App = () => {
@@ -12,6 +13,8 @@ const App = () => {
   const [showFilter, setShowFilter] = useState(false); 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const imagesPerPage = 10;
 
   const fetchImages = async (searchTerm) => {
     try {
@@ -51,14 +54,22 @@ const App = () => {
       );
     });
     setFilteredImages(filtered);
+    setCurrentPage(1);
   };
+
+  const indexOfLastImage = currentPage * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = filteredImages.slice(indexOfFirstImage, indexOfLastImage);
+
+
+  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="app">
       <h1 className="header">CosmicView</h1>
       <ImageSearch onSearch={fetchImages} />
 
-      <Modal open={isModalOpen} onClose={handleClose} closeIcon>
+      <Modal open={isModalOpen} onClose={handleClose} closeIcon={false} closeOnDimmerClick={false}>
         <Modal.Header>
           Search Results
           <Icon name="filter" onClick={toggleFilter} style={{ cursor: 'pointer', float: 'right' }} />
@@ -85,11 +96,18 @@ const App = () => {
             {filteredImages.length === 0? (
               <div className="no-results"> No results found</div>
             ) : (
-              <ImageTable images={filteredImages}/>
-          
+              <>
+              <ImageTable images={currentImages}/>
+              
+              <Pagination
+              imagesPerPage={imagesPerPage}
+              totalImages={filteredImages.length}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
+            </>
             )}
           
-          <ImageTable images={filteredImages} />
         </Modal.Content>
         
         <Modal.Actions>
