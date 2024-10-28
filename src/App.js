@@ -26,6 +26,7 @@ const App = () => {
       });
       setImages(response.data.collection.items);
       setFilteredImages(response.data.collection.items); 
+      setCurrentPage(1);
       setIsModalOpen(true);
     } catch (error) {
       console.error('Error fetching images:', error);
