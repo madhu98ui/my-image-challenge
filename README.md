@@ -2,18 +2,26 @@ NASA Image Challenge :
 
 NASA Image Challenge is a single-page web application built with React that leverages NASA’s image API to allow users to search, filter, and view images.
 
-Features
+Features :
+
 	1.	Users can search NASA’s image library using plain text.
+
 	2.	Filter search results by specifying a date range.
+
 	3.	View detailed information about each image in a modal window.
 
-Technologies Used
+Technologies Used :
+
 	•	React: For building a dynamic user interface.
+
 	•	Axios: For making HTTP requests to NASA’s API.
+
 	•	Semantic UI: For ready-made UI components.
+
 	•	NASA Image API: Provides image data and metadata.
 
-Setup
+Setup :
+
 	1.	Install Node.js
 
 	2.	Clone the repository and navigate into the project directory: 
@@ -32,7 +40,8 @@ Setup
 	6.	Build for production:
         npm run build
 
-Key Features
+Key Features :
+
 	Image Search :
 	•	Allows users to search NASA’s image library by entering keywords.
 	•	User input is handled via ImageSearch.js with an input field and a search button, and microphone functionality for      voice-based search.
@@ -46,11 +55,13 @@ Key Features
 	•	Created using ImageModal.js with Semantic UI.
 	•	Displays a “No Results Found” message when no images match search criteria.
 
-Components
+Components :
+
 	•	ImageSearch.js: Manages user input and initiates searches.
 	•	ImageModal.js: Renders detailed view and metadata of selected images.
 
-Enhancements
+Enhancements :
+
 	•	Bookmark Feature: Enable users to save favorite images for later.
 	•	Social Sharing: Share images directly to social media platforms.
 
