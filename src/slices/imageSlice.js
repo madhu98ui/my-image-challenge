@@ -68,6 +68,10 @@ const imageSlice = createSlice({
       });
       state.currentPage = 1; 
     },
+    resetDateFilter: (state) => {
+        state.startDate = '';
+        state.endDate = '';
+      },
   },
   extraReducers: (builder) => {
     builder
@@ -95,6 +99,7 @@ export const {
   toggleModal,
   toggleFilter,
   applyDateFilter,
+  resetDateFilter,
 } = imageSlice.actions;
 
 export default imageSlice.reducer;

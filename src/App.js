@@ -12,6 +12,7 @@ import {
   toggleModal,
   toggleFilter,
   applyDateFilter,
+  resetDateFilter,
 } from './slices/imageSlice';
 import './App.css';
 
@@ -39,6 +40,16 @@ const dispatch = useDispatch();
     dispatch(toggleModal()); 
   };
 
+  const handleCloseModal = () => {
+    dispatch(toggleModal());   
+    dispatch(resetDateFilter());
+    dispatch(toggleFilter());
+    
+  };
+
+  const handleToggleFilter = () => {
+    dispatch(toggleFilter());
+  };
   return (
     <div className="app">
       
@@ -48,7 +59,7 @@ const dispatch = useDispatch();
       <Modal open={isModalOpen} onClose={() => dispatch(toggleModal())} closeIcon={false} closeOnDimmerClick={false}>
         <Modal.Header>
           Search Results
-          <Icon name="filter" onClick={() => dispatch(toggleFilter())} style={{ cursor: 'pointer', float: 'right' }} />
+          <Icon name="filter" onClick={handleToggleFilter} style={{ cursor: 'pointer', float: 'right' }} />
         </Modal.Header>
         
         <Modal.Content scrolling>
@@ -89,7 +100,7 @@ const dispatch = useDispatch();
         </Modal.Content>
         
         <Modal.Actions>
-          <Button color="red" onClick={() => dispatch(toggleModal())}>
+          <Button color="red" onClick={handleCloseModal}>
             <Icon name="close" /> Close
           </Button>
         </Modal.Actions>
