@@ -43,8 +43,9 @@ const dispatch = useDispatch();
   const handleCloseModal = () => {
     dispatch(toggleModal());   
     dispatch(resetDateFilter());
-    dispatch(toggleFilter());
-    
+    if (showFilter) {
+      dispatch(toggleFilter()); 
+    }
   };
 
   const handleToggleFilter = () => {
